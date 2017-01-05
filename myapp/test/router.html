@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale==0,user-scalable=0">
+    <script src="../public/javascripts/angular/angular.min.js"></script>
+    <script src="../public/javascripts/angular-route/angular-route.min.js"></script>
+    <script src="../public/javascripts/angular-animate/angular-animate.min.js"></script>
+    <script src="../public/javascripts/app.js"></script>
+    <script src="controller.js"></script>
+    <script src="servce.js"></script>
+    <script src="../public/javascripts/mui.min.js"></script>
+    <link rel="stylesheet" href="../public/stylesheets/mui.min.css">
+</head>
+<style>
+    .view-container > .view.ng-animate {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        min-height:500px;
+    }
+    .view.ng-enter, .view.ng-leave,
+    .record.ng-anchor {
+        transition:0.5s linear all;
+    }
+    .view.ng-enter {
+        transform:translateX(100%);
+    }
+    .view.ng-enter.ng-enter-active, .view.ng-leave {
+        transform:translateX(0%);
+    }
+    .view.ng-leave.ng-leave-active {
+        transform:translateX(-100%);
+    }
+    .record.ng-anchor-out {
+        background:red;
+    }
+</style>
+<body ng-app="myapp">
+<div class="view-container">
+    <div ng-view class="view">
+    </div>
+</div>
+<nav class="mui-bar mui-bar-tab">
+    <a class="mui-tab-item mui-active">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" herf="#!/aa">
+        <span class="mui-icon mui-icon-phone"></span>
+        <span class="mui-tab-label">电话</span>
+    </a>
+    <a class="mui-tab-item">
+        <span class="mui-icon mui-icon-email"></span>
+        <span class="mui-tab-label">邮件</span>
+    </a>
+    <a class="mui-tab-item">
+        <span class="mui-icon mui-icon-gear"></span>
+        <span class="mui-tab-label">备忘录</span>
+    </a>
+    <a class="mui-tab-item">
+        <span class="mui-icon mui-icon-gear"></span>
+        <span class="mui-tab-label">聊天</span>
+    </a>
+
+</nav>
+</body>
+</html>
+<!--1.bower 下载路由，引入到页面当中
+    2.将route提供的模块依赖到主模块当中 ngRoute
+    3.配置路由 在主文件当中配置路由
+    4.config $routeProvider服务
+    5.$routeProvider.when("路径"，{templateUrl:url,controller:"show"}
+    6.应该在主页面当中指定容器-->

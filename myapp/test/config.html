@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../public/javascripts/angular/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+    <div controller="ctrl"></div>
+</body>
+<script>
+    angular.module("myapp",[]).factory("ABC",function(){
+        return {name:"zs"}
+    }).controller("ctrl",function(ABC){
+        console.log(ABC.name)
+    })
+</script>
+</html>

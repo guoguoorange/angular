@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../public/javascripts/angular/angular.min.js"></script>
+    <script src="directive.js"></script>
+</head>
+<!--angular  模块化编程
+angular.module()
+生命周期
+.config().run(内部http服务).controller().filter().directive().fatory()
+-->
+<body ng-app="myapp">
+<!--组件-->
+<div menu>
+    123
+</div>
+<hr>
+<div menu>
+    123
+</div>
+<hr>
+<div menu>
+    123
+</div>
+<hr>
+
+</body>
+<script>
+    /*ajax 1.向服务器发起请求 2.ajax不能跨域 3.在地址栏留不下任何记录
+    * 4.搜索引擎不友好（本质也是爬虫）5.不能完成前进和后退，不能形成任何历史记录*/
+    angular.module("myapp",["directive"])
+
+
+</script>
+</html>

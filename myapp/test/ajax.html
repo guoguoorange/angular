@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../public/javascripts/angular/angular.min.js"></script>
+    <script src="directive.js"></script>
+</head>
+<body>
+<div style="width: 200px;height:200px;background: #ccc"></div>
+<button type="button">按钮</button>
+</body>
+<script>
+    /*http://localhost/aa/vvv/dd.html?a=10#aa
+    * 协议+主机号（服务器号）+路径+甜点（随机甜点不缓存）+锚链接*/
+//    angular路由的原理
+    window.onpopstate=function(){
+        var url=location.href;
+
+        if(url.indexOf("#")>-1){
+            var ajaxurl=url.slice(url.indexOf("#")+1);
+            var xmlobj=new XMLHttpRequest();
+            xmlobj.onload=function(){
+                document.querySelector("div").innerHTML=xmlobj.response;
+            }
+            xmlobj.open("get",ajaxurl);
+            xmlobj.send();
+        }else{
+            document.querySelector("div").innerHTML="";
+        }
+        document.querySelector("button").onclick=function(){
+            var newurl=url+"#demo1.html";
+            location.href=newurl;
+            var xmlobj=new XMLHttpRequest();
+            xmlobj.onload=function(){
+                document.querySelector("div").innerHTML=xmlobj.response;;
+            }
+            xmlobj.open("get","demo1.html");
+            xmlobj.send();
+        }
+    }
+    var url=location.href;
+
+    if(url.indexOf("#")>-1){
+        var ajaxurl=url.slice(url.indexOf("#")+1);
+        var xmlobj=new XMLHttpRequest();
+        xmlobj.onload=function(){
+            document.querySelector("div").innerHTML=xmlobj.response;
+        }
+        xmlobj.open("get",ajaxurl);
+        xmlobj.send();
+    }else{
+        document.querySelector("div").innerHTML="";
+    }
+    document.querySelector("button").onclick=function(){
+        var newurl=url+"#demo1.html";
+        location.href=newurl;
+        var xmlobj=new XMLHttpRequest();
+        xmlobj.onload=function(){
+            document.querySelector("div").innerHTML=xmlobj.response;;
+        }
+        xmlobj.open("get","demo1.html");
+        xmlobj.send();
+    }
+
+</script>
+</html>
